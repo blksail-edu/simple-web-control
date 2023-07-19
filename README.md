@@ -53,7 +53,8 @@ source ~/.zshrc
 ```
 
 ## Step 5: Setup the sim for first use
-The ardupilot instructions suggest running the sim with the -w flag on first execution to load all default values. Once everything is loaded, you can exit with `ctrl+c`.
+The ardupilot instructions suggest running the sim with the -w flag on first execution to load all default values. 
+Wait for Once everything is loaded, you can exit with `ctrl+c`.
 Make sure to run this from the `ArduSub` folder
 ```bash
 cd ~/ardupilot/ArduSub/
@@ -144,7 +145,7 @@ When the script finishes execution, reload the path:
 ## Step 4: Add the \`Tools/autotest\` directory to your PATH
 
 ```bash
-echo "export PATH=$PATH:$HOME/ardupilot/Tools/autotest" >> ~/.zshrc
+echo -e "\nexport PATH=$PATH:$HOME/ardupilot/Tools/autotest" >> ~/.zshrc
 source ~/.zshrc
 ```
 

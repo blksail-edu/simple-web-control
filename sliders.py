@@ -62,9 +62,8 @@ def update_m6(x, state):
     motor_values[5] = x
 
 
-# run threaded while loop, with an async queue to send commands to the drone
-# the queue will be filled by the gradio sliders
-# the while loop will run until the queue is empty
+# run threaded while loop, reading motor values from a list
+# Thread will run as long as run_thread is set.
 def call_motors(mav_connection):
     while run_thread.is_set():
         for i in range(len(motor_values)):

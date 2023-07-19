@@ -13,6 +13,9 @@ run_thread.set()
 
 
 def arm_rov(mav_connection):
+    """
+    Arm the ROV, wait for confirmation
+    """
     mav_connection.arducopter_arm()
     print("Waiting for the vehicle to arm")
     mav_connection.motors_armed_wait()
@@ -20,13 +23,18 @@ def arm_rov(mav_connection):
 
 
 def disarm_rov(mav_connection):
+    """
+    Disarm the ROV, wait for confirmation
+    """
     mav_connection.arducopter_disarm()
     print("Waiting for the vehicle to disarm")
     mav_connection.motors_disarmed_wait()
     print("Disarmed!")
 
-
 def stop_all():
+    """
+    Stop all motors. Sliders are not affected
+    """
     global motor_values
     motor_values = [0, 0, 0, 0, 0, 0]
 
@@ -62,19 +70,20 @@ def update_m6(x, state):
     motor_values[5] = x
 
 
-# run threaded while loop, reading motor values from a list
-# Thread will run as long as run_thread is set.
 def call_motors(mav_connection):
+    """
+    Threaded function that calls test_motor() with the values from the list motor_values
+    The thread will run as long as run_thread is set. We use this to stop the thread when the program is closed.
+    """
     while run_thread.is_set():
         for i in range(len(motor_values)):
             test_motor(mav_connection=mav_connection, motor_id=i, power=motor_values[i])
             pass
         time.sleep(0.2)
-        # print confirmation in purple
-        # print("\033[95m" + "Motor values sent to drone: " + str(motor_values) + "\033[0m")
 
 
 with gr.Blocks() as demo:
+    # Create sliders for each motor
     slider_m1 = gr.Slider(-100, 100, step=1, value=0, label="Motor 1")
     slider_m2 = gr.Slider(-100, 100, step=1, value=0, label="Motor 2")
     slider_m3 = gr.Slider(-100, 100, step=1, value=0, label="Motor 3")
@@ -85,6 +94,7 @@ with gr.Blocks() as demo:
     state = gr.State(value=0)
 
     sliders = [slider_m1, slider_m2, slider_m3, slider_m4, slider_m5, slider_m6]
+    # Attach a release event to each slider that updates the corresponding motor value
     slider_m1.release(
         update_m1, inputs=[slider_m1, state], outputs=[], api_name="m1_slider"
     )
@@ -104,10 +114,9 @@ with gr.Blocks() as demo:
         update_m6, inputs=[slider_m6, state], outputs=[], api_name="m6_slider"
     )
 
-    # add button in new row that calls function "stop all"
+    # Add a button that stops all motors
     with gr.Row():
         button = gr.Button(value="STOP ALL", label="Stop all")
-
     button.click(stop_all, inputs=[], outputs=[], api_name="stop_all")
 
 

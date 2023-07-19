@@ -1,18 +1,20 @@
+## On the Raspberry Pi
 
-
-## INSTALL DEPENDENCIES
+### INSTALL DEPENDENCIES
 
 ```bash
 pip install pymavlink
 pip install gradio
 ```
 
-## RUN
+### RUN
 
 ```bash
 python sliders.py
 ```
-- Keep an eye on the terminal for the output of the script. Wait for the script to verify that the ROV has been armed
+:information_source: Keep an eye on the terminal for the output of the script. Wait for the script to verify that the ROV has been armed
+
+## On your laptop
   
 - Open a browser and go to http://backseat.local:7860
 

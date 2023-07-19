@@ -151,8 +151,10 @@ source ~/.zshrc
 ```
 
 ## Step 5: Setup the sim for first use
-The ardupilot instructions suggest running the sim with the -w flag on first execution to load all default values. 
-:information_source: Wait until the build process is fully finished!. 
+The ardupilot instructions suggest running the sim with the -w flag on first execution to load all default values.   
+
+:information_source: Wait until the build process is fully finished!.  
+
 Once everything is built, and you start seeing messages about battery level, you can exit with `ctrl+c`.
 Make sure to run this from the `ArduSub` folder
 ```bash

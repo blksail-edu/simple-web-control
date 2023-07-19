@@ -97,6 +97,7 @@ cd ~/ardupilot/ArduSub
 sim_vehicle.py --vehicle=ArduSub --frame=json --aircraft="bwsibot" -L RATBeach --out=udp:0.0.0.0:14550
 ```
 
+# RUNNING THE SIMPLE WEB CONTROLS
 
 ## On the Raspberry Pi
 

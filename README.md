@@ -82,20 +82,6 @@ sim_vehicle.py --vehicle=ArduSub --aircraft="bwsibot" -L RATBeach --out=udp:<hos
 ### Finally, launch QGroundcontrol
 If you haven't done so yet, you can download it from the [QGroundControl's official download page](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html).
 
-## Optional: running SITL with the 3D bluesim simulator
-
-Download the correct BlueSim client for your system from the [latest releases](https://github.com/bluerobotics/bluesim/releases/tag/latest) on their GitHub page. 
-
-Once the download is complete, extract the files and navigate to the extracted directory to execute the file.
-
-### Step 6a: Run SITL compatible with BlueSim
-
-You're now ready to run SITL. For example, to simulate our ROV, we will use the following commands:
-
-```bash
-cd ~/ardupilot/ArduSub
-sim_vehicle.py --vehicle=ArduSub --frame=json --aircraft="bwsibot" -L RATBeach --out=udp:0.0.0.0:14550
-```
 
 # RUNNING THE SIMPLE WEB CONTROLS
 

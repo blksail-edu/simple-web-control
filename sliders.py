@@ -113,9 +113,9 @@ with gr.Blocks() as demo:
 
 
 if __name__ == "__main__":
-    print("here")
     # run call_motors as thread
     mav_con = mavutil.mavlink_connection("udpin:0.0.0.0:14550")
+    print("Waiting for heartbeat")
     mav_con.wait_heartbeat()
     arm_rov(mav_con)
     t = Thread(target=call_motors, args=(mav_con,))

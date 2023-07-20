@@ -48,7 +48,7 @@ When the script finishes execution, reload the path:
 ## Step 4: Add the \`Tools/autotest\` directory to your PATH
 
 ```bash
-echo "export PATH=$PATH:$HOME/ardupilot/Tools/autotest" >> ~/.zshrc
+echo -e "\nexport PATH=$PATH:$HOME/ardupilot/Tools/autotest" >> ~/.zshrc
 source ~/.zshrc
 ```
 

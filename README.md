@@ -53,7 +53,9 @@ source ~/.zshrc
 ```
 
 ## Step 5: Setup the sim for first use
-The ardupilot instructions suggest running the sim with the -w flag on first execution to load all default values. Once everything is loaded, you can exit with `ctrl+c`.
+The ardupilot instructions suggest running the sim with the -w flag on first execution to load all default values. 
+Wait for the build process to fully complete! 
+Once this is commpleted, and you see messages about battery status, you can exit with `ctrl+c`.
 Make sure to run this from the `ArduSub` folder
 ```bash
 cd ~/ardupilot/ArduSub/
@@ -82,20 +84,6 @@ sim_vehicle.py --vehicle=ArduSub --aircraft="bwsibot" -L RATBeach --out=udp:<hos
 ### Finally, launch QGroundcontrol
 If you haven't done so yet, you can download it from the [QGroundControl's official download page](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html).
 
-## Optional: running SITL with the 3D bluesim simulator
-
-Download the correct BlueSim client for your system from the [latest releases](https://github.com/bluerobotics/bluesim/releases/tag/latest) on their GitHub page. 
-
-Once the download is complete, extract the files and navigate to the extracted directory to execute the file.
-
-### Step 6a: Run SITL compatible with BlueSim
-
-You're now ready to run SITL. For example, to simulate our ROV, we will use the following commands:
-
-```bash
-cd ~/ardupilot/ArduSub
-sim_vehicle.py --vehicle=ArduSub --frame=json --aircraft="bwsibot" -L RATBeach --out=udp:0.0.0.0:14550
-```
 
 # RUNNING THE SIMPLE WEB CONTROLS
 
@@ -158,12 +146,16 @@ When the script finishes execution, reload the path:
 ## Step 4: Add the \`Tools/autotest\` directory to your PATH
 
 ```bash
-echo "export PATH=$PATH:$HOME/ardupilot/Tools/autotest" >> ~/.zshrc
+echo -e "\nexport PATH=$PATH:$HOME/ardupilot/Tools/autotest" >> ~/.zshrc
 source ~/.zshrc
 ```
 
 ## Step 5: Setup the sim for first use
-The ardupilot instructions suggest running the sim with the -w flag on first execution to load all default values. Once everything is loaded, you can exit with `ctrl+c`.
+The ardupilot instructions suggest running the sim with the -w flag on first execution to load all default values.   
+
+:information_source: Wait until the build process is fully finished!.  
+
+Once everything is built, and you start seeing messages about battery level, you can exit with `ctrl+c`.
 Make sure to run this from the `ArduSub` folder
 ```bash
 cd ~/ardupilot/ArduSub/
